@@ -1,0 +1,325 @@
+@font-face {
+    font-family: 'Blooming Elegant';
+    src: url(fonts/Blooming\ Elegant\ Sans.otf);
+}
+
+@font-face {
+    font-family: 'Cedora Bold';
+    src: url(/fonts/Cedora-BoldStd.otf);
+}
+
+@font-face {
+    font-family: 'Purissima Bold';
+    src: url(/fonts/Purissima\ Bold\ W00\ Regular.ttf);
+}
+
+@keyframes circleAnimation {
+    from {
+        margin-left:0px;
+    }
+
+    to {
+        margin-left:160px;
+    }
+}
+
+body{
+    height: 3000px;
+    margin: 0px;
+}
+header{
+    height: 90px;
+    width: auto;
+    background-color: #00237d;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav>img{
+    padding: 28px;
+}
+
+.h1-title, 
+.h2-title,
+.animation{
+    text-align: center;
+}
+
+.h2-title{
+    font-family: Blooming Elegant;
+    color: #0c5adb;
+    font-size: 35px;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.h1-title{
+    font-family: Cedora Bold;
+    font-size: 45px;
+}
+
+.join{
+    /* width: 150px;
+    height: 50px;
+    margin-left: 685px;
+    margin-top: 50px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    background-color: #0c5adb;
+    font-family: Cedora;
+    font-size: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s; */
+
+    background-color: #0c5adb;
+    color: white;
+    width: 16rem;
+    height: 4rem;
+    padding: 0.85em 0.75em;
+    border: none;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+
+.join::before{
+    content: '';
+    background: #00237d;
+    position: absolute;
+    top: 100%;
+    bottom: 0;
+    left: -100%;
+    right: 100%;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+    width: 100%;
+    height: 200%;
+    transition: all 0.35s;
+    rotate: 45deg;
+}
+
+/* при наведении на кнопку, применяю стили для псевдоэлемента */
+.join:hover::before{
+    transform: scale(1.5, 2);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transition: all 0.35s;
+}
+
+.info-title{
+    font-family: Cedora Bold;
+}
+
+.animation{
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.line{
+    height: 10px;
+    width: 180px;
+    background-color: #ccc;
+}
+
+.circle{
+    height: 20px;
+    width: 20px;
+    clip-path: circle(50% at 50% 50%);
+    background-color: #0c5adb;
+    margin-top: -4.5px;
+
+    animation-name: circleAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* 
+    space between - 1й и последний блок размещаются в начале и в конце, а между остальными высчитывается одинаковое расстояние
+    space-around - равномерное распридиление пространства между карточкам
+*/
+
+/* .container{
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap; перезодим на новую строку при нехватке места
+} */
+
+/* .container-2{
+    display: flex;
+    flex-direction: row;
+} */
+
+.card{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    /* max-width: calc(50% - 20px); */ /* Вычисляем ширину элемента как 50% от доступной ширины контейнера, но с вычетом 20 пикселей. (для отступов) */
+}
+
+.card>img, .substrate{
+    width: 255px;
+    height: 306px;
+    margin-left: 10px;
+    margin-right: 10px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+
+.card>img{
+    z-index: 5;
+}
+
+.substrate{
+    z-index: 1;
+}
+
+.block{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.tab{
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-style: ridge;
+    border-color: whitesmoke;
+    transition: all 1s;
+}
+
+.info{
+    width: 350px;
+    height: 280px;
+}
+
+/* .card>img{
+
+} */
+
+/* .gradient-background */
+
+
+.tab:hover{
+    transform: scale(1.05);
+    border-style: solid;
+    border-color: gray;
+}
+
+.card:hover .substrate{
+    transform: rotate(-10deg);
+}
+
+.card:hover .rectangle{
+    background-color: #00237d;
+}
+
+.card:hover .position-title{
+    transform: translateY(-25px);
+    visibility: hidden; /* элемент становится НЕВИДИМЫМ */
+    opacity: 0; /* элемент ПРОЗАЧНЫЙ */
+}
+
+.card:hover .icons{
+    top: 50px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.substrate{
+    background-color: #0c5adb;
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    transition: all 1s;
+}
+
+
+.rectangle{
+    width: 250px;
+    height: 80px;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    background-color: #0c5adb;
+    position: absolute;
+    top: 233px;
+    left: 40px;
+    transition: all 1s;
+    z-index: 6;
+}
+
+
+
+.rectangle>span{
+    color:white;
+    position: absolute;
+}
+
+
+span.name-title{
+    font-size: 31px;
+    font-family: 'Purissima Bold';
+    top: 15px;
+    left: 55px;
+}
+
+span.position-title{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    top: 48px;
+    left: 55px;
+    visibility: visible;    /* Изачально элемент ВИДИМЫЙ*/
+    opacity: 1; /* Изначально элемент ВИДИМЫЙ и НЕПРОЗРАЧНЫЙ*/
+    transition: all 0.5s;
+}
+
+span.icons{
+    top: 80px;
+    left: 53px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+span.icons>a{
+    color: white;
+    margin-right: 12px;
+    text-decoration: none;
+}
+
+/* для планшетов */
+@media (min-width: 481px) and (max-width: 830px){
+    .rectangle{
+        left: 22px;
+    }
+}
+
+/* для пк */
+@media (min-width: 769px){
+    /* .container{
+        flex-direction: row;
+    }
+
+    .h1-title, 
+    .h2-title,
+    .animation{
+    margin-left: 130px;
+    text-align: left;
+    } */
+
+    .rectangle{
+        left: 10px;
+    }
+}
